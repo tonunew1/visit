@@ -31,7 +31,7 @@ def get_url(server_name):
     elif server_name in {"BR", "US", "SAC", "NA"}:
         return "https://client.us.freefiremobile.com/GetPlayerPersonalShow"
     else:
-        return "https://clientbp.ggblueshark.com/GetPlayerPersonalShow"
+        return "https://clientbp.ggpolarbear.com/GetPlayerPersonalShow"
 
 def parse_protobuf_response(response_data):
     try:
@@ -47,12 +47,12 @@ def parse_protobuf_response(response_data):
         }
         return player_data
     except Exception as e:
-        app.logger.error(f"❌ Protobuf parsing error: {e}")
+        app.loer.error(f"❌ Protobuf parsing error: {e}")
         return None
 
 async def visit(session, url, token, uid, data):
     headers = {
-        "ReleaseVersion": "OB53",
+        "ReleaseVersion": "OB54",
         "X-GA": "v1 1",
         "Authorization": f"Bearer {token}",
         "Host": url.replace("https://", "").split("/")[0]
